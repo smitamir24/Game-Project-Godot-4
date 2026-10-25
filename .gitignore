@@ -1,0 +1,22 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot import and preset files
+*.import
+*.translation
+*.preset
+
+# C# / .NET build outputs
+bin/
+obj/
+*.user
+*.csproj.user
+*.sln.ide
+.vs/
+
+# Exported templates and packages
+*.export
+*.export_debug
+*.pcak
+*.pck

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cmuu7db6styp5"]
+
+[ext_resource type="PackedScene" uid="uid://3n4rx4hlc4qy" path="res://GameFile/GameResource/Player/Scene/Player.tscn" id="1_mcbev"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_eq3k7"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_mcbev"]
+sky_material = SubResource("ProceduralSkyMaterial_eq3k7")
+
+[sub_resource type="Environment" id="Environment_nomtl"]
+background_mode = 2
+sky = SubResource("Sky_mcbev")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jpyye"]
+albedo_color = Color(0, 0.29411766, 0, 1)
+
+[node name="Game" type="Node3D" unique_id=151747594]
+
+[node name="World" type="Node" parent="." unique_id=378028095]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=1453837715]
+environment = SubResource("Environment_nomtl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=294242106]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 30, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World" unique_id=1578499150]
+use_collision = true
+size = Vector3(30, 0.5, 30)
+material = SubResource("StandardMaterial3D_jpyye")
+
+[node name="PlayerContainer" type="Node" parent="." unique_id=1777143365]
+
+[node name="Player" parent="PlayerContainer" unique_id=2122128891 instance=ExtResource("1_mcbev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

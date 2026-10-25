@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://3n4rx4hlc4qy"]
+
+[ext_resource type="Script" uid="uid://8jh5afkiw2u7" path="res://GameFile/GameResource/Player/Script/Player.cs" id="1_h4n0c"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w2f4e"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h4n0c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orua6"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jpyye"]
+size = Vector3(0.8, 0.3, 0.4)
+
+[node name="Player" type="CharacterBody3D" unique_id=2122128891]
+script = ExtResource("1_h4n0c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1330513691]
+shape = SubResource("CapsuleShape3D_w2f4e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1374504921]
+mesh = SubResource("CapsuleMesh_h4n0c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=641627473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.35)
+material_override = SubResource("StandardMaterial3D_orua6")
+mesh = SubResource("BoxMesh_jpyye")
+
+[node name="CameraPivot" type="SpringArm3D" parent="." unique_id=1346350804]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1340043322]
